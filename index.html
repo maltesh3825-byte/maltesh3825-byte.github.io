@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Maltesh Bagari - Portfolio & Engineering Blog | 3rd Sem B.Tech CSIT, REVA University | Full Stack Developer, AI/ML Enthusiast, Competitive Coder" />
+  <meta name="keywords" content="Maltesh Bagari, Portfolio, B25CS0311, REVA University, LeetCode, GitHub Pages, Web Development" />
+  <meta name="author" content="Maltesh Bagari" />
+  <title>Maltesh Bagari | Portfolio & Blog — B25CS0311</title>
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg-primary: #0a0d14;
+      --bg-secondary: #101624;
+      --bg-card: rgba(19, 26, 43, 0.75);
+      --bg-card-hover: rgba(28, 38, 62, 0.85);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(99, 102, 241, 0.3);
+      
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+
+      --accent-primary: #6366f1; /* Indigo */
+      --accent-secondary: #06b6d4; /* Cyan */
+      --accent-gradient: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+      --accent-glow: 0 0 25px rgba(99, 102, 241, 0.4);
+
+      --badge-bg: rgba(99, 102, 241, 0.12);
+      --badge-text: #818cf8;
+      --badge-border: rgba(99, 102, 241, 0.3);
+
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+
+      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: #ffffff;
+      --border-color: rgba(0, 0, 0, 0.08);
+      --border-glow: rgba(99, 102, 241, 0.3);
+
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-subtle: #94a3b8;
+
+      --badge-bg: rgba(99, 102, 241, 0.08);
+      --badge-text: #4f46e5;
+      --badge-border: rgba(99, 102, 241, 0.2);
+
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Reset & Base Setup */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+      transition: background-color var(--transition-normal), color var(--transition-normal);
+    }
+
+    /* Ambient Background Glows */
+    .ambient-glow {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(140px);
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.25;
+      animation: floatGlow 12s ease-in-out infinite alternate;
+    }
+
+    .glow-1 {
+      top: -100px;
+      left: -100px;
+      background: #6366f1;
+    }
+
+    .glow-2 {
+      bottom: 10%;
+      right: -100px;
+      background: #06b6d4;
+      animation-delay: -6s;
+    }
+
+    @keyframes floatGlow {
+      0% { transform: translateY(0px) scale(1); }
+      100% { transform: translateY(60px) scale(1.15); }
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .gradient-text {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color var(--transition-fast);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(10, 13, 20, 0.75);
+      border-bottom: 1px solid var(--border-color);
+      transition: background var(--transition-normal), border var(--transition-normal);
+    }
+
+    [data-theme="light"] .navbar {
+      background: rgba(248, 250, 252, 0.85);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-badge {
+      background: var(--accent-gradient);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      position: relative;
+      padding: 4px 0;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--text-main);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gradient);
+      transition: width var(--transition-fast);
+      border-radius: 2px;
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .theme-toggle-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .theme-toggle-btn:hover {
+      border-color: var(--accent-primary);
+      transform: rotate(15deg);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-main);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: var(--radius-full);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 6px 22px rgba(99, 102, 241, 0.55);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-primary);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-sm {
+      padding: 0.45rem 0.9rem;
+      font-size: 0.85rem;
+    }
+
+    /* Section Headers */
+    .section {
+      padding: 5.5rem 0;
+      position: relative;
+    }
+
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      border: 1px solid var(--badge-border);
+      margin-bottom: 0.9rem;
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 600px;
+    }
+
+    .section-header {
+      margin-bottom: 3.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 6rem 0 4.5rem;
+      display: grid;
+      grid-template-columns: 1.25fr 0.85fr;
+      align-items: center;
+      gap: 3.5rem;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34d399;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      margin-bottom: 1.5rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #10b981;
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .hero-title {
+      font-size: 3.25rem;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .metric-label {
+      font-size: 0.85rem;
+      color: var(--text-subtle);
+      font-weight: 500;
+    }
+
+    /* Hero Card / Code Glass Box */
+    .hero-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent-gradient);
+    }
+
+    .card-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .dot.red { background: #ef4444; }
+    .dot.yellow { background: #f59e0b; }
+    .dot.green { background: #10b981; }
+
+    .terminal-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-subtle);
+    }
+
+    .student-badge-pill {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(99, 102, 241, 0.15);
+      color: #a5b4fc;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .code-preview {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: #e2e8f0;
+    }
+
+    .code-line {
+      display: block;
+    }
+
+    .code-key { color: #818cf8; }
+    .code-str { color: #34d399; }
+    .code-num { color: #38bdf8; }
+    .code-comment { color: #64748b; font-style: italic; }
+
+    .quick-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .tech-pill {
+      font-size: 0.78rem;
+      padding: 0.3rem 0.7rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+    }
+
+    /* Course Artifacts Spotlight Section (Activities 1-4) */
+    .artifacts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .artifact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all var(--transition-normal);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .artifact-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-glow);
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+      background: var(--bg-card-hover);
+    }
+
+    .artifact-num {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-secondary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .artifact-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .artifact-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .artifact-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.8rem;
+    }
+
+    .repo-link {
+      color: var(--accent-primary);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .repo-link:hover {
+      color: var(--accent-secondary);
+      text-decoration: underline;
+    }
+
+    /* Major Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition-normal);
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-glow);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .hackathon-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      background: rgba(245, 158, 11, 0.12);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .project-title {
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-tag {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.6rem;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Skills Grid */
+    .skills-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-category {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      transition: all var(--transition-normal);
+    }
+
+    .skill-category:hover {
+      border-color: var(--border-glow);
+    }
+
+    .skill-category-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .category-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: var(--badge-bg);
+      color: var(--accent-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-pill {
+      padding: 0.45rem 0.85rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all var(--transition-fast);
+    }
+
+    .skill-pill:hover {
+      background: var(--badge-bg);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+      transform: translateY(-2px);
+    }
+
+    /* Portfolio Blog Section (Activity 12 Component) */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .blog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition-normal);
+      cursor: pointer;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-glow);
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.12);
+    }
+
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-subtle);
+      margin-bottom: 0.75rem;
+    }
+
+    .blog-category-badge {
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .blog-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.85rem;
+      line-height: 1.4;
+      color: var(--text-main);
+    }
+
+    .blog-excerpt {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .blog-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-secondary);
+    }
+
+    /* Contact Section */
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .contact-info h3 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .contact-method-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .contact-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: var(--badge-bg);
+      color: var(--accent-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .form-input, .form-textarea {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1rem;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: all var(--transition-fast);
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    /* Modal for Full Blog Post */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      max-width: 680px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 2.5rem;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .modal-close:hover {
+      color: var(--text-main);
+    }
+
+    .modal-body {
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-size: 0.98rem;
+    }
+
+    .modal-body h4 {
+      color: var(--text-main);
+      margin: 1.5rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #10b981;
+      color: #ffffff;
+      padding: 0.85rem 1.4rem;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-lg);
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 1000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 0;
+      text-align: center;
+      color: var(--text-subtle);
+      font-size: 0.88rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-link {
+      color: var(--text-muted);
+      transition: color var(--transition-fast);
+    }
+
+    .footer-link:hover {
+      color: var(--accent-primary);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 3.5rem;
+        text-align: left;
+      }
+      .contact-card {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+      }
+      .hero-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-toggle {
+        display: block;
+      }
+      .mobile-drawer {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-color);
+        padding: 1.5rem;
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        z-index: 99;
+      }
+      .mobile-drawer.open {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Glow Elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo">
+        <span class="gradient-text font-heading">Maltesh Bagari</span>
+        <span class="logo-badge">CSE / CSIT</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#activities" class="nav-link">Course Milestones</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#blog" class="nav-link">Blog</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle Color Theme" title="Toggle Dark/Light Mode">
+          <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
+        <a href="#contact" class="btn btn-primary btn-sm">Get in Touch</a>
+        <button id="mobileMenuBtn" class="mobile-menu-toggle" aria-label="Open Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="#about" class="nav-link mobile-nav-link">About</a>
+      <a href="#activities" class="nav-link mobile-nav-link">Course Milestones</a>
+      <a href="#projects" class="nav-link mobile-nav-link">Projects</a>
+      <a href="#skills" class="nav-link mobile-nav-link">Skills</a>
+      <a href="#blog" class="nav-link mobile-nav-link">Blog</a>
+      <a href="#contact" class="nav-link mobile-nav-link">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="section hero" id="home">
+    <div class="container hero" style="padding: 0; width: 100%;">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span class="status-dot"></span> Available for Software Engineering Internships
+        </div>
+        <h1 class="hero-title">
+          Engineering solutions with <span class="gradient-text">code, intelligence & speed</span>.
+        </h1>
+        <p class="hero-subtitle">
+          Hi, I'm <strong>Maltesh Bagari</strong> — 2nd-year B.Tech CSIT student (3rd Semester) at <strong>REVA University</strong>, Bengaluru. I specialize in Data Structures & Algorithms (C++), full-stack development, and AI/ML applications.
+        </p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#activities" class="btn btn-primary">
+            <i class="fa-solid fa-code-commit"></i> Course Milestones
+          </a>
+          <a href="#projects" class="btn btn-secondary">
+            <i class="fa-solid fa-diagram-project"></i> View Projects
+          </a>
+          <button id="quickCopyEmailBtn" class="btn btn-secondary" onclick="copyEmail()">
+            <i class="fa-regular fa-copy"></i> Copy Email
+          </button>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <span class="metric-value">100+</span>
+            <span class="metric-label">LeetCode Solved</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-value">2026</span>
+            <span class="metric-label">SIH & Hackathon Runner-Up</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-value">B25CS0311</span>
+            <span class="metric-label">Portfolio Course ID</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Glass Card / Live Code Snippet -->
+      <div class="hero-card">
+        <div class="card-topbar">
+          <div class="terminal-dots">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+          </div>
+          <div class="terminal-title">developer_profile.json</div>
+          <span class="student-badge-pill">REVA University</span>
+        </div>
+
+        <div class="code-preview">
+          <span class="code-line">{</span>
+          <span class="code-line">&nbsp;&nbsp;<span class="code-key">"name"</span>: <span class="code-str">"Maltesh Bagari"</span>,</span>
+          <span class="code-line">&nbsp;&nbsp;<span class="code-key">"role"</span>: <span class="code-str">"Full-Stack Dev & AI/ML Builder"</span>,</span>
+          <span class="code-line">&nbsp;&nbsp;<span class="code-key">"degree"</span>: <span class="code-str">"B.Tech CSIT (2024-2028)"</span>,</span>
+          <span class="code-line">&nbsp;&nbsp;<span class="code-key">"semester"</span>: <span class="code-num">3</span>,</span>
+          <span class="code-line">&nbsp;&nbsp;<span class="code-key">"focus"</span>: [<span class="code-str">"DSA (C++)"</span>, <span class="code-str">"React"</span>, <span class="code-str">"Python AI"</span>],</span>
+          <span class="code-line">&nbsp;&nbsp;<span class="code-key">"hackathons"</span>: <span class="code-str">"KalaSetu (SIH 2026), Bug Bash Runner-Up"</span>,</span>
+          <span class="code-line">&nbsp;&nbsp;<span class="code-key">"status"</span>: <span class="code-str">"Building & Shipping Daily"</span></span>
+          <span class="code-line">}</span>
+        </div>
+
+        <div class="quick-tags">
+          <span class="tech-pill"><i class="fa-brands fa-react"></i> React.js</span>
+          <span class="tech-pill"><i class="fa-brands fa-node-js"></i> Node.js</span>
+          <span class="tech-pill"><i class="fa-brands fa-python"></i> Python</span>
+          <span class="tech-pill"><i class="fa-solid fa-database"></i> MongoDB / SQL</span>
+          <span class="tech-pill"><i class="fa-brands fa-git-alt"></i> GitLens / GitHub</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge"><i class="fa-solid fa-user"></i> About Me</span>
+        <h2 class="section-title">Driven by clean code, algorithms, and real-world impact.</h2>
+        <p class="section-desc">
+          Balancing theoretical depth in Data Structures & Algorithms with hands-on full-stack engineering and AI hackathon prototyping.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem; align-items: start;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem;">
+          <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--text-main);">My Journey & Academic Background</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.75;">
+            I am currently a 3rd Semester B.Tech Computer Science and Information Technology (CSIT) student at REVA University, Bengaluru (graduating in 2028). My interest lies at the intersection of competitive problem solving and practical AI software development.
+          </p>
+          <p style="color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.75;">
+            Through our <strong>Portfolio Building course (B25CS0311)</strong>, I have systematically cultivated professional developer workflows: setting up an optimized VS Code environment, mastering Git version control, engaging in collaborative pair programming with Live Share and GitLens, and maintaining a structured LeetCode repository documenting over 100 algorithmic solutions.
+          </p>
+          <p style="color: var(--text-muted); line-height: 1.75;">
+            <strong>Career Goal:</strong> To secure a challenging Software Engineering Internship where I can contribute to high-scale backend/full-stack systems and production-grade AI applications, while continuing to advance my competitive programming ratings on Codeforces and LeetCode.
+          </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem;">
+            <div style="font-size: 0.85rem; color: var(--accent-secondary); font-weight: 700; text-transform: uppercase;">Education</div>
+            <h4 style="font-size: 1.15rem; margin-top: 0.35rem;">REVA University, Bengaluru</h4>
+            <div style="color: var(--text-muted); font-size: 0.9rem;">B.Tech in CSIT • 2024 - 2028</div>
+            <div style="color: var(--text-subtle); font-size: 0.85rem; margin-top: 0.25rem;">Current Status: 2nd Year (3rd Semester)</div>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem;">
+            <div style="font-size: 0.85rem; color: #fbbf24; font-weight: 700; text-transform: uppercase;">Leadership & Cohorts</div>
+            <h4 style="font-size: 1.15rem; margin-top: 0.35rem;">Ignite Venture Cohort</h4>
+            <div style="color: var(--text-muted); font-size: 0.9rem;">REVA University Entrepreneurship & Innovation</div>
+            <div style="color: var(--text-subtle); font-size: 0.85rem; margin-top: 0.25rem;">Capgemini Brand Quest 2026 Participant</div>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem;">
+            <div style="font-size: 0.85rem; color: #34d399; font-weight: 700; text-transform: uppercase;">Competitive Coding</div>
+            <h4 style="font-size: 1.15rem; margin-top: 0.35rem;">100+ Problems Solved</h4>
+            <div style="color: var(--text-muted); font-size: 0.9rem;">LeetCode, GeeksforGeeks, Codeforces</div>
+            <div style="color: var(--text-subtle); font-size: 0.85rem; margin-top: 0.25rem;">Runner-Up, Bug Bash Debuggathon</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Building Course Activities Section (Activities 1-4) -->
+  <section class="section" id="activities" style="background: rgba(255, 255, 255, 0.015);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge"><i class="fa-solid fa-timeline"></i> Course Deliverables</span>
+        <h2 class="section-title">Activities 1 through 4: Foundational Artifacts</h2>
+        <p class="section-desc">
+          Direct evidence from the Portfolio Building coursework (B25CS0311), tracking the progression from environment setup to real GitHub collaboration and algorithmic mastery.
+        </p>
+      </div>
+
+      <div class="artifacts-grid">
+        <!-- Activity 1 -->
+        <div class="artifact-card">
+          <div>
+            <span class="artifact-num">Activity 01</span>
+            <h3>VS Code Setup & Toolchain</h3>
+            <p>
+              Configured a professional modern development environment in VS Code with tailored C++, Python, and Web linters, formatting standards, and terminal integrations.
+            </p>
+          </div>
+          <div class="artifact-meta">
+            <span style="color: var(--text-subtle);"><i class="fa-solid fa-screwdriver-wrench"></i> Setup & Config</span>
+            <span class="student-badge-pill">Completed</span>
+          </div>
+        </div>
+
+        <!-- Activity 2 -->
+        <div class="artifact-card">
+          <div>
+            <span class="artifact-num">Activity 02</span>
+            <h3>Git & GitHub Setup</h3>
+            <p>
+              Established SSH keys, Git CLI configurations, and initialized the working <code>hello-world</code> repository to master branch management, staging, and remote pushes.
+            </p>
+          </div>
+          <div class="artifact-meta">
+            <span style="color: var(--text-subtle);"><i class="fa-brands fa-git-alt"></i> Version Control</span>
+            <a href="https://github.com/maltesh3825/hello-world" target="_blank" rel="noopener noreferrer" class="repo-link">
+              hello-world <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Activity 3 -->
+        <div class="artifact-card">
+          <div>
+            <span class="artifact-num">Activity 03</span>
+            <h3>GitLens & Live Share</h3>
+            <p>
+              Conducted real-time remote pair programming via VS Code Live Share. Utilized GitLens for granular commit blame investigation and created a detailed collaboration log.
+            </p>
+          </div>
+          <div class="artifact-meta">
+            <span style="color: var(--text-subtle);"><i class="fa-solid fa-users"></i> Pair Programming</span>
+            <a href="https://github.com/maltesh3825" target="_blank" rel="noopener noreferrer" class="repo-link">
+              Collaboration Log <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Activity 4 -->
+        <div class="artifact-card">
+          <div>
+            <span class="artifact-num">Activity 04</span>
+            <h3>LeetCode Practice Repo</h3>
+            <p>
+              Built and organized the <code>leetcode-solutions</code> repository containing over 100+ optimized solutions in C++ and Python categorized by data structures and complexity.
+            </p>
+          </div>
+          <div class="artifact-meta">
+            <span style="color: var(--text-subtle);"><i class="fa-solid fa-brain"></i> 100+ Solutions</span>
+            <a href="https://github.com/maltesh3825/leetcode-solutions" target="_blank" rel="noopener noreferrer" class="repo-link">
+              leetcode-solutions <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Major Projects & Hackathons Section -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge"><i class="fa-solid fa-rocket"></i> Featured Projects</span>
+        <h2 class="section-title">Hackathons & Production Prototypes</h2>
+        <p class="section-desc">
+          Real applications built during national hackathons and developer competitions solving genuine societal and technical challenges.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: KalaSetu AI Studio -->
+        <div class="project-card">
+          <div class="project-badge-row">
+            <span class="hackathon-badge"><i class="fa-solid fa-award"></i> Smart India Hackathon 2026</span>
+            <span style="font-size: 0.8rem; color: var(--text-subtle);">Ministry of Social Justice</span>
+          </div>
+          <h3 class="project-title">KalaSetu AI Studio</h3>
+          <p class="project-desc">
+            Contributed to an AI-driven cataloging platform designed to empower traditional Indian artisans. Features intelligent image enhancement, auto-generated multilingual descriptions, and fair market price insights.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">AI / Computer Vision</span>
+            <span class="project-tag">React.js</span>
+            <span class="project-tag">Flask</span>
+            <span class="project-tag">Supabase</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/maltesh3825" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+              <i class="fa-brands fa-github"></i> Repository
+            </a>
+            <button class="btn btn-secondary btn-sm" onclick="openModal('kalasetu')">
+              <i class="fa-solid fa-circle-info"></i> Project Details
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 2: Smart Weekly Revision Planner -->
+        <div class="project-card">
+          <div class="project-badge-row">
+            <span class="hackathon-badge"><i class="fa-solid fa-trophy"></i> Namma Hack Hackathon</span>
+            <span style="font-size: 0.8rem; color: var(--text-subtle);">AI Web App</span>
+          </div>
+          <h3 class="project-title">Smart Weekly Revision Planner</h3>
+          <p class="project-desc">
+            An AI-powered academic scheduling application utilizing spaced repetition algorithms. Generates dynamic weekly study sprints, predicts retention drop-offs, and balances revision workloads.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Python Flask</span>
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">SQLite</span>
+            <span class="project-tag">Spaced Repetition Algorithm</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/maltesh3825" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+              <i class="fa-brands fa-github"></i> Repository
+            </a>
+            <button class="btn btn-secondary btn-sm" onclick="openModal('revision')">
+              <i class="fa-solid fa-circle-info"></i> Project Details
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 3: Bug Bash Debuggathon -->
+        <div class="project-card">
+          <div class="project-badge-row">
+            <span class="hackathon-badge" style="background: rgba(16, 185, 129, 0.12); color: #34d399; border-color: rgba(16, 185, 129, 0.3);">
+              <i class="fa-solid fa-medal"></i> Runner-Up Position
+            </span>
+            <span style="font-size: 0.8rem; color: var(--text-subtle);">REVA University</span>
+          </div>
+          <h3 class="project-title">Bug Bash Debuggathon</h3>
+          <p class="project-desc">
+            Competitive debugging and code optimization tournament under strict timed conditions. Identified subtle memory leaks, concurrency locks, and algorithmic bottlenecks across multiple programming paradigms.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">C++</span>
+            <span class="project-tag">Debugging</span>
+            <span class="project-tag">Time Complexity Optimization</span>
+            <span class="project-tag">GDB / Profiling</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/maltesh3825" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+              <i class="fa-brands fa-github"></i> Profile
+            </a>
+            <button class="btn btn-secondary btn-sm" onclick="openModal('bugbash')">
+              <i class="fa-solid fa-circle-info"></i> Competition Summary
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Skills Section -->
+  <section class="section" id="skills" style="background: rgba(255, 255, 255, 0.015);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge"><i class="fa-solid fa-layer-group"></i> Technical Toolkit</span>
+        <h2 class="section-title">Skills & Technologies</h2>
+        <p class="section-desc">
+          Structured inventory of programming languages, web frameworks, cloud tooling, and foundational core competencies.
+        </p>
+      </div>
+
+      <div class="skills-wrapper">
+        <!-- Category 1 -->
+        <div class="skill-category">
+          <div class="skill-category-header">
+            <div class="category-icon"><i class="fa-solid fa-code"></i></div>
+            <h3 style="font-size: 1.15rem;">Languages</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="skill-pill"><i class="fa-solid fa-terminal"></i> C</span>
+            <span class="skill-pill"><i class="fa-solid fa-microchip"></i> C++</span>
+            <span class="skill-pill"><i class="fa-brands fa-python"></i> Python</span>
+            <span class="skill-pill"><i class="fa-brands fa-js"></i> JavaScript</span>
+          </div>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="skill-category">
+          <div class="skill-category-header">
+            <div class="category-icon"><i class="fa-solid fa-globe"></i></div>
+            <h3 style="font-size: 1.15rem;">Web Development</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="skill-pill"><i class="fa-brands fa-html5"></i> HTML5</span>
+            <span class="skill-pill"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+            <span class="skill-pill"><i class="fa-brands fa-react"></i> React.js</span>
+            <span class="skill-pill"><i class="fa-brands fa-node-js"></i> Node.js</span>
+            <span class="skill-pill">Express.js</span>
+            <span class="skill-pill">EJS</span>
+            <span class="skill-pill"><i class="fa-solid fa-database"></i> SQL</span>
+            <span class="skill-pill"><i class="fa-brands fa-envira"></i> MongoDB</span>
+          </div>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="skill-category">
+          <div class="skill-category-header">
+            <div class="category-icon"><i class="fa-solid fa-cloud"></i></div>
+            <h3 style="font-size: 1.15rem;">Cloud & Deployment</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="skill-pill"><i class="fa-brands fa-aws"></i> AWS</span>
+            <span class="skill-pill">Netlify</span>
+            <span class="skill-pill">Railway</span>
+            <span class="skill-pill">Supabase</span>
+            <span class="skill-pill">Vercel</span>
+            <span class="skill-pill">Render</span>
+            <span class="skill-pill"><i class="fa-brands fa-github"></i> GitHub Pages</span>
+          </div>
+        </div>
+
+        <!-- Category 4 -->
+        <div class="skill-category">
+          <div class="skill-category-header">
+            <div class="category-icon"><i class="fa-solid fa-brain"></i></div>
+            <h3 style="font-size: 1.15rem;">Core Competencies</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="skill-pill">Data Structures (DSA)</span>
+            <span class="skill-pill">Problem Solving</span>
+            <span class="skill-pill">AI & Machine Learning</span>
+            <span class="skill-pill">Git & GitLens</span>
+            <span class="skill-pill">Live Share Pair Dev</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Blog Section (Activity 12 Requirement) -->
+  <section class="section" id="blog">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge"><i class="fa-solid fa-pen-nib"></i> Activity 12 Blog</span>
+        <h2 class="section-title">Engineering Reflections & Notes</h2>
+        <p class="section-desc">
+          Reflecting on technical growth throughout the Portfolio Building studio sessions and competitive coding journey.
+        </p>
+      </div>
+
+      <div class="blog-grid">
+        <!-- Post 1 -->
+        <article class="blog-card" onclick="openModal('blog1')">
+          <div class="blog-meta">
+            <span class="blog-category-badge">Course Reflection</span>
+            <span><i class="fa-regular fa-clock"></i> 4 min read</span>
+          </div>
+          <h3 class="blog-title">From Solo Coding to Live Share: Mastering Remote Pair Programming (Activity 3)</h3>
+          <p class="blog-excerpt">
+            How working with VS Code Live Share and GitLens transformed the way I write, inspect, and negotiate code changes in a team setting.
+          </p>
+          <div class="blog-footer">
+            <span>Read full story</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="blog-card" onclick="openModal('blog2')">
+          <div class="blog-meta">
+            <span class="blog-category-badge">DSA & Problem Solving</span>
+            <span><i class="fa-regular fa-clock"></i> 5 min read</span>
+          </div>
+          <h3 class="blog-title">Crossing the 100+ LeetCode Milestone: Why a Structured Repo Matters (Activity 4)</h3>
+          <p class="blog-excerpt">
+            Solving problems is only half the battle; maintaining a searchable, annotated GitHub repository with time complexities is the secret to long-term mastery.
+          </p>
+          <div class="blog-footer">
+            <span>Read full story</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="blog-card" onclick="openModal('blog3')">
+          <div class="blog-meta">
+            <span class="blog-category-badge">AI Hackathons</span>
+            <span><i class="fa-regular fa-clock"></i> 6 min read</span>
+          </div>
+          <h3 class="blog-title">Building KalaSetu AI Studio: Tech For Social Impact at Smart India Hackathon 2026</h3>
+          <p class="blog-excerpt">
+            Our journey building an automated AI cataloging and pricing engine for rural artisans under the Ministry of Social Justice and Empowerment problem statement.
+          </p>
+          <div class="blog-footer">
+            <span>Read full story</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact" style="background: rgba(255, 255, 255, 0.015);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge"><i class="fa-solid fa-paper-plane"></i> Connect</span>
+        <h2 class="section-title">Let's Discuss Opportunities</h2>
+        <p class="section-desc">
+          Feel free to reach out for software engineering internships, collaborative hackathons, or competitive coding discussions.
+        </p>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-info">
+          <h3>Get In Touch</h3>
+          <p>
+            I am always open to exploring innovative projects, internship roles, and technical discussions. Drop me a note or connect on LinkedIn and GitHub!
+          </p>
+
+          <div class="contact-methods">
+            <div class="contact-method-item">
+              <div class="contact-icon-box"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--text-subtle);">Direct Email</div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.95rem;">maltesh3825@gmail.com</div>
+              </div>
+            </div>
+
+            <div class="contact-method-item">
+              <div class="contact-icon-box"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--text-subtle);">Location</div>
+                <div>Bengaluru, Karnataka, India</div>
+              </div>
+            </div>
+
+            <div class="contact-method-item">
+              <div class="contact-icon-box"><i class="fa-brands fa-github"></i></div>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--text-subtle);">GitHub Profile</div>
+                <a href="https://github.com/maltesh3825" target="_blank" rel="noopener noreferrer" style="color: var(--accent-secondary); text-decoration: underline;">
+                  github.com/maltesh3825
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label for="nameInput">Your Name</label>
+            <input type="text" id="nameInput" class="form-input" placeholder="e.g. Alex Smith" required />
+          </div>
+
+          <div class="form-group">
+            <label for="emailInput">Your Email</label>
+            <input type="email" id="emailInput" class="form-input" placeholder="alex@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="messageInput">Message</label>
+            <textarea id="messageInput" class="form-textarea" placeholder="Hello Maltesh, I reviewed your portfolio..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://github.com/maltesh3825" target="_blank" rel="noopener noreferrer" class="footer-link">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">
+          <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="mailto:maltesh3825@gmail.com" class="footer-link">
+          <i class="fa-solid fa-envelope"></i> Email
+        </a>
+      </div>
+      <p style="margin-bottom: 0.4rem;">
+        Designed & Built for <strong>Portfolio Building Course (B25CS0311) — Activity 12</strong>
+      </p>
+      <p style="color: var(--text-subtle); font-size: 0.8rem;">
+        Hosted via GitHub Pages at <code>https://maltesh3825.github.io</code> • Maltesh Bagari &copy; 2026. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Modal Component for Blog & Project Details -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOnOverlay(event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</button>
+      <h3 id="modalTitle" style="font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--text-main);"></h3>
+      <div id="modalSub" style="font-size: 0.85rem; color: var(--accent-secondary); margin-bottom: 1.5rem;"></div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toastNotification">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMessage">Copied to clipboard!</span>
+  </div>
+
+  <!-- JavaScript for Interactive Controls -->
+  <script>
+    // Theme Switcher (Dark / Light Mode)
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+    const htmlElement = document.documentElement;
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      htmlElement.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+    }
+
+    function toggleTheme() {
+      const currentTheme = htmlElement.getAttribute('data-theme') || 'dark';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      htmlElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+      showToast(`Switched to ${newTheme} theme`);
+    }
+
+    function updateThemeIcon(theme) {
+      if (theme === 'light') {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      }
+    }
+
+    themeToggleBtn.addEventListener('click', toggleTheme);
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileDrawer.classList.toggle('open');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.remove('open');
+      });
+    });
+
+    // Copy Email Function
+    function copyEmail() {
+      const email = 'maltesh3825@gmail.com';
+      navigator.clipboard.writeText(email).then(() => {
+        showToast('Email maltesh3825@gmail.com copied to clipboard!');
+      }).catch(() => {
+        showToast('Unable to copy. Email: maltesh3825@gmail.com');
+      });
+    }
+
+    // Toast Notification System
+    function showToast(msg) {
+      const toast = document.getElementById('toastNotification');
+      const toastMsg = document.getElementById('toastMessage');
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3200);
+    }
+
+    // Contact Form Handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('nameInput').value.trim();
+      const email = document.getElementById('emailInput').value.trim();
+      const message = document.getElementById('messageInput').value.trim();
+
+      if (name && email && message) {
+        showToast(`Thank you ${name}! Your message has been simulated.`);
+        document.getElementById('contactForm').reset();
+      }
+    }
+
+    // Modal Content Database
+    const modalData = {
+      blog1: {
+        title: "From Solo Coding to Live Share: Mastering Remote Pair Programming (Activity 3)",
+        subtitle: "Course Reflection • Activity 3 • 4 min read",
+        content: `
+          <p>During the earlier stages of our computer science journey, writing code was fundamentally an isolated pursuit. We wrote solutions on local machines, pushed commits without thinking about co-authoring, and rarely analyzed line-by-line attribution.</p>
+          <h4>The Live Share Shift</h4>
+          <p>In Activity 3, engaging in structured pair programming via VS Code Live Share altered that perspective. Collaborating in real-time meant thinking aloud about variable naming, discussing edge conditions before writing loops, and resolving logic flaws interactively.</p>
+          <h4>Demystifying Code Blame with GitLens</h4>
+          <p>Pairing Live Share with GitLens introduced deep context into our collaborative commits. Being able to see inline git annotations, commit messages, and branch histories directly inside the editor fostered greater accountability and taught us how high-performing engineering teams manage complex codebases without stepping on each other's toes.</p>
+        `
+      },
+      blog2: {
+        title: "Crossing the 100+ LeetCode Milestone: Why a Structured Repo Matters (Activity 4)",
+        subtitle: "DSA & Problem Solving • Activity 4 • 5 min read",
+        content: `
+          <p>Solving competitive coding challenges is rewarding, but without structured documentation, solutions slip from memory just weeks after submission.</p>
+          <h4>Architecture of the leetcode-solutions Repository</h4>
+          <p>In Activity 4, we transitioned away from simply clicking 'Submit' on LeetCode. Instead, we established the dedicated <code>leetcode-solutions</code> GitHub repository. Every problem contains:</p>
+          <ul style="list-style: disc; margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.5rem;">
+            <li>The problem statement and difficulty tag</li>
+            <li>Optimized C++ / Python implementations</li>
+            <li>Explicit Big-O time and space complexity annotations</li>
+            <li>Brief reflections on alternative approaches (e.g. hashmap lookup vs two-pointer traversal)</li>
+          </ul>
+          <h4>Key Insight</h4>
+          <p>Structuring the repository acts as an external algorithmic brain. When revising for debugging competitions or technical interviews, having 100+ vetted solutions at hand makes pattern recognition effortless.</p>
+        `
+      },
+      blog3: {
+        title: "Building KalaSetu AI Studio: Tech For Social Impact at Smart India Hackathon 2026",
+        subtitle: "National Hackathon • Ministry of Social Justice • 6 min read",
+        content: `
+          <p>KalaSetu AI Studio was born out of our participation in the Smart India Hackathon 2026, addressing challenges raised by the Ministry of Social Justice and Empowerment.</p>
+          <h4>The Problem</h4>
+          <p>India is home to millions of gifted rural artisans whose handcrafted products struggle to find equitable market reach due to poor photography, lack of English digital cataloging, and intermediary price exploitation.</p>
+          <h4>Our Solution</h4>
+          <p>We engineered an AI-assisted studio platform that allows artisans to photograph their craft using modest mobile cameras. The system automates background cleanup, synthesizes rich cultural narratives in multiple languages, and suggests competitive pricing based on raw material and craft complexity.</p>
+          <p>Building KalaSetu taught me how to bridge full-stack architectures (React, Flask, Supabase) with real-world accessibility requirements.</p>
+        `
+      },
+      kalasetu: {
+        title: "KalaSetu AI Studio — SIH 2026 Deep Dive",
+        subtitle: "Smart India Hackathon • Ministry of Social Justice and Empowerment",
+        content: `
+          <p><strong>Overview:</strong> Contributed to KalaSetu AI Studio, an artificial intelligence platform developed for the Smart India Hackathon 2026 to catalog artisan creations and connect indigenous makers directly to fair markets.</p>
+          <h4>Technical Architecture</h4>
+          <ul style="list-style: disc; margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.5rem;">
+            <li><strong>Frontend:</strong> React.js with responsive micro-animations for low-bandwidth mobile devices.</li>
+            <li><strong>Backend:</strong> Python Flask microservices for handling image processing workflows.</li>
+            <li><strong>Database & Auth:</strong> Supabase PostgreSQL with secure artisan profile management.</li>
+            <li><strong>AI Capabilities:</strong> Automated background extraction, automated attribute tagging, and multilingual description synthesis.</li>
+          </ul>
+        `
+      },
+      revision: {
+        title: "Smart Weekly Revision Planner — Namma Hack",
+        subtitle: "Hackathon Entry • AI-Powered Spaced Repetition",
+        content: `
+          <p><strong>Overview:</strong> Built during the Namma Hack hackathon, this web application addresses exam cramming by converting large course syllabi into mathematically optimized spaced revision schedules.</p>
+          <h4>Features & Implementation</h4>
+          <ul style="list-style: disc; margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.5rem;">
+            <li>Automated difficulty-weighted task queuing based on Ebbinghaus' forgetting curve.</li>
+            <li>Lightweight Python Flask backend with responsive dynamic charts.</li>
+            <li>Streak tracking and automated calendar sync to prevent study burnout.</li>
+          </ul>
+        `
+      },
+      bugbash: {
+        title: "Bug Bash Debuggathon — REVA University",
+        subtitle: "Competitive Debugging • Runner-Up Achievement",
+        content: `
+          <p><strong>Achievement:</strong> Secured the <strong>Runner-Up position</strong> at REVA University's Bug Bash Debuggathon.</p>
+          <h4>Competition Scope</h4>
+          <p>Participants were tasked with solving deeply obfuscated codebases containing edge-case bugs, race conditions, memory leaks, and suboptimal Big-O loops under rapid time limits. The achievement validates strong algorithmic foundations and code comprehension in C++ and Python.</p>
+        `
+      }
+    };
+
+    function openModal(key) {
+      const data = modalData[key];
+      if (!data) return;
+      document.getElementById('modalTitle').textContent = data.title;
+      document.getElementById('modalSub').textContent = data.subtitle;
+      document.getElementById('modalBody').innerHTML = data.content;
+      document.getElementById('modalOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeModalOnOverlay(e) {
+      if (e.target.id === 'modalOverlay') {
+        closeModal();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Initialize Theme on Page Load
+    initTheme();
+  </script>
+</body>
+</html>
