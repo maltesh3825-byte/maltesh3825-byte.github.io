@@ -265,6 +265,10 @@
       cursor: pointer;
     }
 
+    .mobile-drawer {
+      display: none;
+    }
+
     /* Buttons */
     .btn {
       display: inline-flex;
@@ -347,12 +351,17 @@
     }
 
     /* Hero Section */
-    .hero {
-      padding: 6rem 0 4.5rem;
+    .hero-section {
+      padding: 6.5rem 0 4.5rem;
+      position: relative;
+    }
+
+    .hero-grid {
       display: grid;
-      grid-template-columns: 1.25fr 0.85fr;
+      grid-template-columns: 1.15fr 0.85fr;
       align-items: center;
       gap: 3.5rem;
+      width: 100%;
     }
 
     .hero-tag {
@@ -1000,10 +1009,11 @@
 
     /* Responsive */
     @media (max-width: 900px) {
-      .hero {
+      .hero-grid {
         grid-template-columns: 1fr;
-        padding-top: 3.5rem;
+        padding-top: 2rem;
         text-align: left;
+        gap: 2.5rem;
       }
       .contact-card {
         grid-template-columns: 1fr;
@@ -1086,8 +1096,8 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="section hero" id="home">
-    <div class="container hero" style="padding: 0; width: 100%;">
+  <section class="section hero-section" id="home">
+    <div class="container hero-grid">
       <div class="hero-content">
         <div class="hero-tag">
           <span class="status-dot"></span> Available for Software Engineering Internships
@@ -1250,7 +1260,7 @@
           </div>
           <div class="artifact-meta">
             <span style="color: var(--text-subtle);"><i class="fa-brands fa-git-alt"></i> Version Control</span>
-            <a href="https://github.com/maltesh3825/hello-world" target="_blank" rel="noopener noreferrer" class="repo-link">
+            <a href="https://github.com/maltesh3825-byte/hello-world" target="_blank" rel="noopener noreferrer" class="repo-link">
               hello-world <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
           </div>
@@ -1267,7 +1277,7 @@
           </div>
           <div class="artifact-meta">
             <span style="color: var(--text-subtle);"><i class="fa-solid fa-users"></i> Pair Programming</span>
-            <a href="https://github.com/maltesh3825" target="_blank" rel="noopener noreferrer" class="repo-link">
+            <a href="https://github.com/maltesh3825-byte" target="_blank" rel="noopener noreferrer" class="repo-link">
               Collaboration Log <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
           </div>
@@ -1284,7 +1294,7 @@
           </div>
           <div class="artifact-meta">
             <span style="color: var(--text-subtle);"><i class="fa-solid fa-brain"></i> 100+ Solutions</span>
-            <a href="https://github.com/maltesh3825/leetcode-solutions" target="_blank" rel="noopener noreferrer" class="repo-link">
+            <a href="https://github.com/maltesh3825-byte/leetcode-solutions" target="_blank" rel="noopener noreferrer" class="repo-link">
               leetcode-solutions <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
           </div>
@@ -1323,7 +1333,7 @@
             <span class="project-tag">Supabase</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/maltesh3825" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+            <a href="https://github.com/maltesh3825-byte" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
               <i class="fa-brands fa-github"></i> Repository
             </a>
             <button class="btn btn-secondary btn-sm" onclick="openModal('kalasetu')">
@@ -1349,7 +1359,7 @@
             <span class="project-tag">Spaced Repetition Algorithm</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/maltesh3825" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+            <a href="https://github.com/maltesh3825-byte" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
               <i class="fa-brands fa-github"></i> Repository
             </a>
             <button class="btn btn-secondary btn-sm" onclick="openModal('revision')">
@@ -1377,7 +1387,7 @@
             <span class="project-tag">GDB / Profiling</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/maltesh3825" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+            <a href="https://github.com/maltesh3825-byte" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
               <i class="fa-brands fa-github"></i> Profile
             </a>
             <button class="btn btn-secondary btn-sm" onclick="openModal('bugbash')">
@@ -1570,8 +1580,8 @@
               <div class="contact-icon-box"><i class="fa-brands fa-github"></i></div>
               <div>
                 <div style="font-size: 0.8rem; color: var(--text-subtle);">GitHub Profile</div>
-                <a href="https://github.com/maltesh3825" target="_blank" rel="noopener noreferrer" style="color: var(--accent-secondary); text-decoration: underline;">
-                  github.com/maltesh3825
+                <a href="https://github.com/maltesh3825-byte" target="_blank" rel="noopener noreferrer" style="color: var(--accent-secondary); text-decoration: underline;">
+                  github.com/maltesh3825-byte
                 </a>
               </div>
             </div>
@@ -1606,7 +1616,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-links">
-        <a href="https://github.com/maltesh3825" target="_blank" rel="noopener noreferrer" class="footer-link">
+        <a href="https://github.com/maltesh3825-byte" target="_blank" rel="noopener noreferrer" class="footer-link">
           <i class="fa-brands fa-github"></i> GitHub
         </a>
         <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">
@@ -1620,7 +1630,7 @@
         Designed & Built for <strong>Portfolio Building Course (B25CS0311) — Activity 12</strong>
       </p>
       <p style="color: var(--text-subtle); font-size: 0.8rem;">
-        Hosted via GitHub Pages at <code>https://maltesh3825.github.io</code> • Maltesh Bagari &copy; 2026. All rights reserved.
+        Hosted via GitHub Pages at <code>https://maltesh3825-byte.github.io</code> • Maltesh Bagari &copy; 2026. All rights reserved.
       </p>
     </div>
   </footer>
